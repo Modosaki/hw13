@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars Update</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body, .jumbotron, .mdz, .h4, .hemisphere-titles,.panel panel-default, .panel-body hemisphere-title, .panel panel-default {background-color: rgb(10, 10, 10); color:whitesmoke}
+    .btn {
+      background-color: rgba(255, 102, 0, 0.89);
+      border: none;
+    }
+    .weather {
+      background-color: rgb(17, 17, 17);
+      color: whitesmoke;
+      
+    }
+    .weather, h4, .hemisphere-titles, .col-md-6 hemispheres {
+      text-align: center;
+      background-color: rgb(17, 17, 17);
+      border: none
+    }
+   .col-md-6{
+      text-align: center;
+      background-color: rgb(17, 17, 17);
+      border: none
+      
+   }
+
+.td {
+    padding: 5px;
+    text-align: center ;
+}
+
+.th {
+    padding: 5px;
+    text-align: center ;
+}
+    
+#left
+{text-align: left}
+
+#underline
+{text-decoration: underline overline; text-align: left
+}
+
+td {
+    height: 10px;
+    vertical-align: center;
+    text-align: center
+}
+th {
+    text-align: center;
+}
+
+th {
+    background-color: rgb(10, 10, 10);
+    color: white;
+}
+
+  </style>
+</head>
+
+    <body>
+      <div class="container">
+        <div class="jumbotron text-center">
+          <h1>Mission to Mars </h1>
+          <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        </div>
+    
+       
+        <div class="row" id="mars-data">
+          <div class="col-md-12 col-sm-12">
+            <h2 class="news">Mars News</h2>
+            <h4 id='underline' >{{mars_data.news_title}}</h4>
+            <p id='left'  >{{mars_data.news_p}}</p>
+          </div>
+          <div class="col-md-8 col-sm-12">
+            <h2 >New Mars Mission Image</h2>
+            <img src= {{ mars_data.jpl_img }} height=auto width=750px>
+          </div>
+          <div class="col-md-4 col-sm-12">
+            <div class="panel panel-default">
+              <div class="panel-body weather">
+                <h4>The Weather on Mars</h4>
+                {{ mars_data.mars_weather }}
+              </div>
+            </div>
+            <h4>Mars Facts</h4>
+            <table>{{ mars_data.mars_facts | safe }}</table>
+          </div>
+        </div>
+        
+          <div   class="inner cover"></div>
+              <h2 id="hemisphere_title">Mars Hemispheres</h2>
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="inner cover" >
+                      <div class="panel-header, background-color: rgb(17, 17, 17);
+                       border: none">
+                        <img src = {{ mars_data.hemisphere_image_urls[0].img_url}} width="100%">
+                      </div>
+                      <div class="panel-body hemisphere-titles">
+                        <h4>{{ mars_data.hemisphere_image_urls[0].title }}</h4>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-6 hemispheres">
+                  <div  class="inner cover">
+                      <div class="panel-header">
+                        <img src = {{ mars_data.hemisphere_image_urls[1].img_url}} width="100%">
+                      </div>
+                      <div class="panel-body hemisphere-titles">
+                        <h4>{{ mars_data.hemisphere_image_urls[1].title }}</h4>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-6 hemispheres">
+                  <div  class="inner cover">
+                      <div class="panel-header">
+                        <img src = {{ mars_data.hemisphere_image_urls[2].img_url}} width="100%">
+                      </div>
+                      <div class="panel-body hemisphere-titles">
+                        <h4>{{ mars_data.hemisphere_image_urls[2].title }}</h4>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-6 hemispheres">
+                  <div  class="inner cover">
+                      <div class="panel-header">
+                        <img src = {{ mars_data.hemisphere_image_urls[3].img_url}} width="100%">
+                      </div>
+                      <div class="panel-body hemisphere-titles">
+                        <h4>{{ mars_data.hemisphere_image_urls[3].title }}</h4>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </body>
+    </html>
+    
+  
+</body>
+
+</html>
